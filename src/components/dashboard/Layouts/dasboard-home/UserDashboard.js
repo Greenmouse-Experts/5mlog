@@ -16,22 +16,21 @@ export const UserDashboard = () => {
     const [request, setData] = useState([]);
 
     useEffect(() => {
-        fetchDashboard()
-    }, []);
-
-    const token = JSON.parse(localStorage.getItem('lynchpin'));
-
-    const fetchDashboard = async () => {
-        try {
-            const url = `${process.env.REACT_APP_BASE_URL}/get/dashboard`;
-            const response = await axios.get(url, { headers: { 'Authorization': 'Bearer ' + token } });
-            const data = response.data.data
-            setData(data);
-            console.log(data)
-        } catch (error) {
-            console.log(error);
+        const fetchDashboard = async () => {
+            try {
+                const url = `${process.env.REACT_APP_BASE_URL}/get/dashboard`;
+                const response = await axios.get(url, { headers: { 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('lynchpin')) } });
+                const data = response.data.data
+                setData(data);
+                console.log(data)
+            } catch (error) {
+                console.log(error);
+            }
         }
-    }
+        fetchDashboard()
+    },[request]);
+
+
 
   return (
     <div>
