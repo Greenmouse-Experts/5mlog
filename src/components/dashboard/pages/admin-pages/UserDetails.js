@@ -111,6 +111,69 @@ export const UserDetails = () => {
                     </div>
                 </div>
             </div>
+            {
+                    user?.account_type === "Driver"? 
+                    <div className='lg:grid-2 justify-between mt-5 gap-5'>
+                        <div className='lg:py-6 py-4 mt-6 lg:mt-0 shadow-md flex'>
+                            <div className='text-primary grid place-content-center w-3/12 text-4xl'><BsFillBookmarkCheckFill/></div>
+                            <div>
+                                <p className='fw-500'>Type of service:</p>
+                                <p>{user?.service_information?.type_of_service_render}</p>
+                            </div>
+                        </div>
+                        <div className='lg:py-6 py-4 mt-6 lg:mt-0 shadow-md flex'>
+                            <div className='text-primary grid place-content-center w-3/12 text-4xl'><BsFillBookmarkCheckFill/></div>
+                            <div>
+                                <p className='fw-500'>Preffered Route:</p>
+                                <p>{user?.service_information?.preferred_route}</p>
+                            </div>
+                        </div>
+                        <div className='lg:py-6 py-4 mt-6 lg:mt-0 shadow-md flex'>
+                            <div className='text-primary grid place-content-center w-3/12 text-4xl'><BsFillBookmarkCheckFill/></div>
+                            <div>
+                                <p className='fw-500'>Account Name:</p>
+                                <p>{user?.bank_information?.account_name}</p>
+                            </div>
+                        </div>
+                        <div className='lg:py-6 py-4 mt-6 lg:mt-0 shadow-md flex'>
+                            <div className='text-primary grid place-content-center w-3/12 text-4xl'><BsFillBookmarkCheckFill/></div>
+                            <div>
+                                <p className='fw-500'>Account Currency:</p>
+                                <p>{user?.bank_information?.account_currency}</p>
+                            </div>
+                        </div>
+                        <div className='lg:py-6 py-4 mt-6 lg:mt-0 shadow-md flex'>
+                            <div className='text-primary grid place-content-center w-3/12 text-4xl'><BsFillBookmarkCheckFill/></div>
+                            <div>
+                                <p className='fw-500'>Bank Name:</p>
+                                <p>{user?.bank_information?.bank_name}</p>
+                            </div>
+                        </div>
+                        <div className='lg:py-6 py-4 mt-6 lg:mt-0 shadow-md flex'>
+                            <div className='text-primary grid place-content-center w-3/12 text-4xl'><BsFillBookmarkCheckFill/></div>
+                            <div>
+                                <p className='fw-500'>Bank Address:</p>
+                                <p>{user?.bank_information?.address}</p>
+                            </div>
+                        </div>
+                        <div className='lg:py-6 py-4 mt-6 lg:mt-0 shadow-md flex'>
+                            <div className='text-primary grid place-content-center w-3/12 text-4xl'><BsFillBookmarkCheckFill/></div>
+                            <div>
+                                <p className='fw-500'>Bank Account Number:</p>
+                                <p>{user?.bank_information?.bank_account_number}</p>
+                            </div>
+                        </div>
+                        <div className='lg:py-6 py-4 mt-6 lg:mt-0 shadow-md flex'>
+                            <div className='text-primary grid place-content-center w-3/12 text-4xl'><BsFillBookmarkCheckFill/></div>
+                            <div>
+                                <p className='fw-500'>Routing Number:</p>
+                                <p>{user?.bank_information?.routing_number}</p>
+                            </div>
+                        </div>
+                    </div>
+                    :
+                    ""
+                }
             <div className='mt-8 lg:mt-12 text-end'>
                 <Button className='bg-primary lg:px-12'>Suspend user</Button>
             </div>

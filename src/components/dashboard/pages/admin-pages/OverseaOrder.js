@@ -10,8 +10,8 @@ export const OverseaOrder = () => {
     const[payment, setPayment] = useState(false)
     const[orderId, setOrderId] = useState("")
 
-    const paymentModal = (vale) => {
-        setOrderId(vale)
+    const paymentModal = (val) => {
+        setOrderId(val)
         setPayment(true)
     }
     const CloseModal = () => {
@@ -57,7 +57,7 @@ export const OverseaOrder = () => {
             payment && (
                 <div className='fixed font-primary left-0 top-0 w-full h-screen bg-op flex justify-center items-center z-40' onClick={CloseModal}>
                     <div className="bg-white relative lg:w-5/12 rounded-md overscroll-none w-11/12 pt-8 shadow fw-500 scale-ani px-5" onClick={e => e.stopPropagation()}>
-                        <UpdateDetails CloseModal={CloseModal} id={orderId} reload={Reload}/>
+                        <UpdateDetails CloseModal={CloseModal} order={orderId} reload={Reload}/>
                     </div>
                 </div>
             )

@@ -5,12 +5,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { PickupTable } from '../../assets/Tables/User-Table/PickupOrder'
 import { Spinner2 } from '../../../assets/Spinner'
-import { PaystackButton } from 'react-paystack'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 import { formatPriceNgn } from '../../assets/RegexFormat/Format'
+import { PaystackButton } from 'react-paystack'
 
 export const PickUpUser = () => {
 
-    const[payment, setPayment] = useState(false)
+    const token = JSON.parse(localStorage.getItem('lynchpin'));
+
+
+    const[payment, setPayment] = useState(false) // eslint-disable-next-line 
+    const [loading, setLoading] = useState(false)
     const [item, setItem] = useState()
     const paymentModal = (item) => {
         setPayment(true)
@@ -37,51 +43,46 @@ export const PickUpUser = () => {
     }, [dispatch])
 
      // paystack payment
-    // const sendOrder = async (payment) => {
-    //     try {
-    //       setLoading(true);
-    //       const payload = {
-    //         order_id: item.order_id
-    //         user_id: user.id
-    //         service_type: item.service_type
-    //          amount: item.price
-    //         paymentInfo: {
-    //           reference: payment.reference,
-    //           amount: totalAmount,
-    //         },
-    //         discount: 0,
-    //         deliveryFee: 0,
-    //         totalAmount: totalAmount,
-    //          };
-    //       console.log(payload);
-    //       const config = {
-    //         headers: {
-    //           "Content-Type": "Application/json",
-    //           authorization: localStorage.getItem("auth_token"),
-    //         },
-    //       };
-    //       const res = await Axios.post("/orders/submit-order", payload, config);
-    //         return res
-    //     } catch (error) {
-    //       CloseModal();
-    //       setLoading(false);
-    //       if (error?.response?.data?.message) {
-    //         toast.error(error.response.data.message, {
-    //           duration: "4000",
-    //           position: "bottom",
-    //         });
-    //         return;
-    //       }
-    //       toaster.notify(error.message, {
-    //         duration: "4000",
-    //         position: "bottom",
-    //       });
+    const sendOrder = async (payment) => {
+        try {
+          setLoading(true);
+          const payload = {
+            order_id: item.order_id,
+            service_type: item.service_type,
+            amount: item.price,
+            reference: payment.reference,
+            status: "paid",
+             };
+          console.log(payload);
+          const config = {
+            headers: { 
+                'Authorization': 'Bearer ' + token 
+            }
+          };
+          const response = await axios.post(`${process.env.REACT_APP_BASE_URL }/confirm/payment`, payload, config)
+          toast.success('payment successful')
+          CloseModal();
+          setTimeout(() => {
+            dispatch(getPickupOrder())
+        }, 3000);
+          return response
+            
+        } catch (error) {
+          CloseModal();
+          setLoading(false);
+          if (error?.response?.data?.message) {
+            toast.error(error.response.data.message, {
+              duration: "4000",
+              position: "bottom",
+            });
+            return;
+          };
          
-    //     }
-    //   };
+        }
+      };
     const handlePaystackSuccessAction = (reference) => {
         console.log(reference);
-        // sendOrder(reference);
+        sendOrder(reference);
       };
       const handlePaystackCloseAction = () => {
         console.log("incorrect transaction");
@@ -136,11 +137,22 @@ export const PickUpUser = () => {
                             <div className='text-end mt-6'>
                                 {
                                     item?.price? 
-                                    <PaystackButton
-                                    text="Pay Now"
-                                    label="Pay Now"
-                                    className='bg-primary lg:px-12 py-2 rounded-lg fw-600 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-600 fs-500 lg:fs-700 px-6'                                    {...componentProps}
-                                    />
+                                    <div>
+                                        {
+                                            item?.paid === null? 
+                                            <PaystackButton
+                                                text="Pay Now"
+                                                label="Pay Now"
+                                                className='bg-primary lg:px-12 py-2 rounded-lg fw-600 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-600 fs-500 lg:fs-700 px-6'                                    {...componentProps}
+                                                />
+                                                :
+                                                <button
+                                                className='bg-primary lg:px-12 py-2 rounded-lg fw-600 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-600 fs-500 lg:fs-700 px-6'                                    {...componentProps}
+                                                disabled>
+                                                    Paid
+                                                </button> 
+                                        }
+                                    </div>
                                     :
                                     <button
                                     className='bg-primary lg:px-12 py-2 rounded-lg fw-600 text-white shadow-lg hover:shadow-xl hover:scale-105 transition-600 fs-500 lg:fs-700 px-6'                                    {...componentProps}

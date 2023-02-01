@@ -145,7 +145,7 @@ export default function MyAccordion() {
       </Accordion>
       <Accordion open={open === 14} icon={<Icon id={14} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(14)} className="lg:px-6 px-2 border lg:mt-6 mt-3 shadow lg:py-5">
-            <p className="fs-700 text-black"><span className="fw-600 pr-2 lg:pr-6 text-primary">Q.</span>How to I track my shipment ?</p>
+            <p className="fs-700 text-black"><span className="fw-600 pr-2 lg:pr-6 text-primary">Q.</span>How do I track my shipment ?</p>
         </AccordionHeader>
         <AccordionBody>
           <p className="lg:px-10 fs-600">Tracking details will be sent to you immediately shipment are drop off .</p>

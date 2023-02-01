@@ -10,6 +10,7 @@ import driverReducer from "./slices/driverOrder";
 import staffReducer from "./slices/staffService";
 import inventReducer from "./slices/inventService";
 import notifyReducer from "./slices/notify";
+import vehicleReducer from "./slices/vehicleService";
 
 const reducer = {
     auth: authReducer,
@@ -23,6 +24,7 @@ const reducer = {
     staff: staffReducer,
     inventory: inventReducer,
     notify: notifyReducer,
+    vehicle: vehicleReducer
 }
 
 const store = configureStore({

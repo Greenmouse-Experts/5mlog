@@ -29,9 +29,7 @@ export const Footer = () => {
                       <ul>
                         <li className='mb-4'><Link to="/terms">Terms of Services</Link></li>
                         <li className='mb-4'><Link to="/privacy">Privacy Policy</Link></li>
-                        {/* <li className='mb-4'>Cookies</li>
-                        <li className='mb-4'><Link to="/">User Agreement</Link></li>
-                        <li className='mb-4'><Link>List of Contrabands</Link></li> */}
+                        <li className='mb-4'><Link to="/contact">Report an issue</Link></li>
                       </ul>
                     </div>
                     <div className='lg:w-5/12'>
@@ -58,7 +56,7 @@ export const Footer = () => {
                   </div>
                 </div>
                 <div className='mt-6 border-t-2 text-center text-white fw-500 fs-500 pt-4 opacity-60'>
-                  <p className='pb-6'>© {new Date().getFullYear() }  5M Logistics. All rights reserved. <span><a href='https://greenmousetech.com/' target='_blank' rel="noreferrer">site credit</a></span></p>
+                  <p className='pb-6'>© {new Date().getFullYear() }  5M Logistics. All rights reserved.</p>
                 </div>
             </div>
         </div>

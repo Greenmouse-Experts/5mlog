@@ -21,6 +21,7 @@ import "jspdf-autotable";
 import Papa from "papaparse";
 import * as XLSX from 'xlsx'
 import dayjs from 'dayjs';
+import { formatPriceNgn } from '../../RegexFormat/Format';
 
 // export table files
 
@@ -139,6 +140,9 @@ export function WarehouseTable({status, paymentModal, deleteOrder}) {
           {
             Header: "Amount",
             accessor: "price",
+            Cell: (props) => (
+              props.value?  formatPriceNgn(props.value) : null
+            )
           },
           {
             Header: "Status",

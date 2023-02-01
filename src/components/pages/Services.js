@@ -25,17 +25,17 @@ export const Services = () => {
                         <p className='absolute hidden lg:block w-02 border text-8xl top-0 left-1/4 opacity-10 fw-600 text-gray-400'>SERVICES</p>
                     </div>
                     <div className='lg:grid-2 justify-between items-center bg-light lg:mt-12 mt-10'>
-                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-0 lg:h-72 md:overflow-scroll xl:overflow-hidden'>
+                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-0 lg:h-64 md:overflow-scroll xl:overflow-hidden'>
                             <div className='lg:w-4/12 grid place-content-center'>
                                 <img src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1671135730/5mlog/5mlog-removebg-preview_ldzwir.png" alt="services" className='lg:w-9/12 mx' />
                             </div>
                             <div className='lg:w-8/12 lg:pr-8'>
                                 <p className='text-lg fw-600'>Logistics & Trucking</p>
-                                <p className='my-7 fs-500 lg:mt-7 mt-4'>Daily delivery to clients at any destination seamlessly and without damaging through trucking or bike shipping to your doorstep is made possible in the shortest possible time available to clients.</p>
+                                <p className='my-7 fs-500 lg:mt-7 mt-4'>Daily delivery to clients at any destination seamlessly and without damaging through trucking or bike shipping to your doorstep is made possible in the shortest possible time.</p>
                                 <Link to="/login" className="text-primary mt-3 lg:mt-5 fw-600">Get Started</Link>
                             </div>
                         </div>
-                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-0 lg:h-72'>
+                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-0 lg:h-64'>
                             <div className='lg:w-4/12 grid place-content-center'>
                                 <img src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1670492401/5mlog/Rectangle_10_1_orf93q.png" alt="services" className='lg:w-9/12  ar-32' />
                             </div>
@@ -45,7 +45,7 @@ export const Services = () => {
                                 <Link to="/login" className="text-primary mt-3 lg:mt-5 fw-600">Get Started</Link>
                             </div>
                         </div>
-                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-72 md:overflow-scroll xl:overflow-hidden'>
+                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-64 md:overflow-scroll xl:overflow-hidden'>
                             <div className='lg:w-4/12 grid place-content-center'>
                                 <img src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1670473610/5mlog/Rectangle_19600_hfc0wv.png" alt="services" className='lg:w-9/12 ar-32' />
                             </div>
@@ -55,7 +55,7 @@ export const Services = () => {
                                 <Link to="/login" className="text-primary mt-3 lg:mt-5 fw-600">Get Started</Link>
                             </div>
                         </div>
-                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-72'>
+                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-64'>
                             <div className='lg:w-4/12 grid place-content-center'>
                                 <img src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1671135374/5mlog/Rectangle_185_dxvvfk.png" alt="services" className='lg:w-9/12 ar-32' />
                             </div>
@@ -65,17 +65,17 @@ export const Services = () => {
                                 <Link to="/login" className="text-primary mt-3 lg:mt-5 fw-600">Get Started</Link>
                             </div>
                         </div>
-                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-72 md:overflow-scroll xl:overflow-hidden'>
+                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-64 md:overflow-scroll xl:overflow-hidden'>
                             <div className='lg:w-4/12 grid place-content-center'>
                                 <img src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1671811441/5mlog/login_lg2kib.jpg" alt="services" className='lg:w-9/12 rounded-md ar-32' />
                             </div>
                             <div className='lg:w-8/12 lg:pr-8'>
-                                <p className='text-lg fw-600 lg:mt-0 mt-4'>Procurement / Shop & Ship</p>
-                                <p className='my-7 fs-500 lg:mt-7 mt-4'>With our wealth of experience in product sourcing, negotiation and supply chain management, we can help do your procurement in a cost-effective way.</p>
+                                <p className='text-lg fw-600 lg:mt-0 mt-4'>Procurement / Shop for me</p>
+                                <p className='my-7 fs-500 lg:mt-7 mt-4'>Shop for me services enable us to procure items on your behalf directly from US stores and Retailers.</p>
                                 <Link to="/login" className="text-primary mt-3 lg:mt-5 fw-600">Get Started</Link>
                             </div>
                         </div>
-                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-72'>
+                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-64'>
                             <div className='lg:w-4/12 grid place-content-center'>
                                 <img src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1670473614/5mlog/Rectangle_19599_q73ooh.png" alt="services" className='lg:w-9/12 ar-32' />
                             </div>
@@ -85,23 +85,24 @@ export const Services = () => {
                                 <Link to="/login" className="text-primary mt-3 lg:mt-5 fw-600">Get Started</Link>
                             </div>
                         </div>
-                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-72 md:overflow-scroll xl:overflow-hidden'>
+                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-64 md:overflow-scroll xl:overflow-hidden'>
                             <div className='lg:w-4/12 grid place-content-center'>
                                 <img src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1673885142/5mlog/5mlog_jybe2u.jpg" alt="services" className='lg:w-9/12 rounded-md ar-32' />
                             </div>
                             <div className='lg:w-8/12 lg:pr-8'>
                                 <p className='text-lg fw-600 lg:mt-0 mt-4'>Express Shipping & Same-Day delivery</p>
-                                <p className='my-7 fs-500 lg:mt-7 mt-4'>When you need your shipment at any destination of your choice in the shortest possible time; We provide reliable, quality and affordable same delivery of your goods and services. </p>
+                                <p className='my-7 fs-500 lg:mt-7 mt-4'>We offer fast delivery , ranging from same day to 3 days delivery depending on your geographic location.</p>
                                 <Link to="/login" className="text-primary mt-3 lg:mt-5 fw-600">Get Started</Link>
                             </div>
                         </div>
-                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-72 md:overflow-scroll xl:overflow-hidden'>
+                        <div className='border lg:flex flex-row-reverse p-5 bg-white shadow-md mt-6 lg:mt-10 lg:h-64 md:overflow-scroll xl:overflow-hidden'>
                             <div className='lg:w-4/12 grid place-content-center'>
                                 <img src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1670492401/5mlog/Rectangle_10_1_orf93q.png" alt="services" className='lg:w-9/12 ar-32' />
                             </div>
                             <div className='lg:w-8/12 lg:pr-8'>
                                 <p className='text-lg fw-600 lg:mt-0 mt-4'>AutoMobile Shipping Services</p>
-                                <p className='my-7 fs-500 lg:mt-7 mt-4'>You can now shop from any Automobile dealer in the US and we will ship directly to you in Nigeria. You can also buy any Automobile part from trusted dealers in the US and have it delivered directly to your doorstep. </p>
+                                <p className='my-7 fs-500 lg:mt-7 mt-4'>buy any car from trusted partners in the US or at any Auction , copart/
+                                IAA and we will ship directly to your doorstep . We offer buy for me at Auction , copart / IAA as well.</p>
                                 <Link to="/login" className="text-primary mt-3 lg:mt-5 fw-600">Get Started</Link>
                             </div>
                         </div>

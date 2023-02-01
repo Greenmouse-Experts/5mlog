@@ -3,6 +3,7 @@ import React from 'react'
 import { FaUsers } from 'react-icons/fa'
 import { FiLayers } from 'react-icons/fi'
 import { TbTruckDelivery } from 'react-icons/tb'
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import { Footer } from './home-comp/Footer'
 import { Header } from './home-comp/Header'
@@ -182,9 +183,11 @@ export const Hompage = () => {
                         </div>
                         <div className='mt-8 lg:mt-12 lg:grid-3 justify-evenly'>
                             <div className='text-center bg-white shadow-md lg:py-12 py-6 px-5'>
-                                <img src='https://res.cloudinary.com/greenmouse-tech/image/upload/v1669904665/5mlog/Group_237747_mriujj.png' alt="process" className='mx-auto w-20' />
-                                <p className='my-6 fs-700 fw-600'>Sign Up</p>
-                                <p className='fs-500'>Provide your needed information and sign up to 5M Logistics.</p>
+                                <Link to='/signup'>
+                                    <img src='https://res.cloudinary.com/greenmouse-tech/image/upload/v1669904665/5mlog/Group_237747_mriujj.png' alt="process" className='mx-auto w-20' />
+                                    <p className='my-6 fs-700 fw-600'>Sign Up</p>
+                                    <p className='fs-500'>Provide your needed information and sign up to 5M Logistics.</p>
+                                </Link>
                             </div>
                             <div className='text-center bg-white mt-6 lg:mt-0 shadow-md lg:py-12 py-6 px-5'>
                                 <img src='https://res.cloudinary.com/greenmouse-tech/image/upload/v1669904665/5mlog/Group_237748_qdcoyz.png' alt="process" className='mx-auto w-20' />

@@ -21,7 +21,7 @@ import "jspdf-autotable";
 import Papa from "papaparse";
 import * as XLSX from 'xlsx'
 import dayjs from 'dayjs';
-import { formatPriceUs } from '../../RegexFormat/Format';
+import { formatPriceNgn } from '../../RegexFormat/Format';
 
 // export table files
 
@@ -110,6 +110,9 @@ export function ExpressTable({status, paymentModal, dispatchOrder}) {
     const gotoDetailsPage = (id) => {
         navigate(`/dashboard/orderdetail?orderId=${id}`)
     }
+    const gotoDriverRequest = (id) => {
+      navigate(`/dashboard/driver-request?requestId=${id}`)
+    }
 
 
     const columns = useMemo(
@@ -145,7 +148,7 @@ export function ExpressTable({status, paymentModal, dispatchOrder}) {
             Header: "Amount",
             accessor: "price",
             Cell: (props) => {
-              return props.value === null ? "" : formatPriceUs(props.value);
+              return props.value === null ? "" : formatPriceNgn(props.value);
            }
           },
           {
@@ -181,9 +184,12 @@ export function ExpressTable({status, paymentModal, dispatchOrder}) {
                     </MenuHandler>
                     <MenuList className="w-16 bg-gray-100 fw-600 text-black">
                       <MenuItem onClick={() => gotoDetailsPage(row.value)}>View Details</MenuItem>
-                      <MenuItem onClick={() => paymentModal(row.value)}>Update Details</MenuItem>
+                      <MenuItem onClick={() => paymentModal(row.row.original)}>Update Details</MenuItem>
                       {
-                        row.row.original?.status === "New" || row.row.original?.status === "Updateed"? <MenuItem onClick={() => dispatchOrder(row.value)}>Dispatch Order</MenuItem> : <MenuItem className="">View Requests</MenuItem>
+                        row?.row.original.paid === null ?
+                        ""
+                        :
+                        row.row.original?.status === "New" || row.row.original?.status === "Updated"? <MenuItem onClick={() => dispatchOrder(row.value)}>Dispatch Order</MenuItem> : <MenuItem className="" onClick={() => gotoDriverRequest(row.value)} >View Requests</MenuItem>         
                       }
                       <MenuItem className="bg-red-600 text-white">Delete</MenuItem>
                     </MenuList>
