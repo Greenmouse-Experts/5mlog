@@ -16,21 +16,22 @@ export const UserDashboard = () => {
     const [request, setData] = useState([]);
 
     useEffect(() => {
-        const fetchDashboard = async () => {
-            try {
-                const url = `${process.env.REACT_APP_BASE_URL}/get/dashboard`;
-                const response = await axios.get(url, { headers: { 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('lynchpin')) } });
-                const data = response.data.data
-                setData(data);
-                console.log(data)
-            } catch (error) {
-                console.log(error);
-            }
-        }
         fetchDashboard()
-    },[request]);
+    }, []);
 
+    const token = JSON.parse(localStorage.getItem('lynchpin'));
 
+    const fetchDashboard = async () => {
+        try {
+            const url = `${process.env.REACT_APP_BASE_URL}/get/dashboard`;
+            const response = await axios.get(url, { headers: { 'Authorization': 'Bearer ' + token } });
+            const data = response.data.data
+            setData(data);
+            console.log(data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
   return (
     <div>
@@ -110,11 +111,11 @@ export const UserDashboard = () => {
                             <p className='fw-600 text-lg flex items-center '><span className=' pr-3'><GiBuyCard/></span>Order Activity</p>
                             <button className='btn-primary py-1 flex items-center'>view all <span className='pl-2 text-xl'><TbLiveView/></span></button>
                         </div>
-                          <UserDashBoardHomeTable tableList={ request.order_activities } />
+                        <UserDashBoardHomeTable tableList={request.order_activities}/>
                     </div>
                     <div className='bg-white lg:p-4 p-6 rounded-lg mt-6 lg:mt-0'>
                         <p className='pb-2 mb-8 fw-600 text-lg flex items-center border-b border-gray-400'><span className=' pr-3'><AiOutlineDeliveredProcedure/></span>Deliveries</p>
-                          <OrdersChart chartData={ request } />
+                          <OrdersChart chartData={request} />
                     </div>
                 </div>
             </div>

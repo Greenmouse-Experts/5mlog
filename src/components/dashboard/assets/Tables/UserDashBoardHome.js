@@ -31,7 +31,7 @@ export const UserDashBoardHomeTable = ({ tableList }) => {
                 </tr>
                 </thead>
                   <tbody>
-                      {tableList.map((list, index) =>
+                      {tableList ? tableList.map((list, index) =>
                           <tr>
                               <td className="border-b border-gray-200 align-middle font-light text-sm whitespace-nowrap px-2 py-4 text-left">
                                   {index + 1}
@@ -57,7 +57,7 @@ export const UserDashBoardHomeTable = ({ tableList }) => {
                                   {list.sender_address}
                               </td>
                           </tr>
-                      )}
+                      ) : ''}
                 </tbody>
             </table>
             </div>

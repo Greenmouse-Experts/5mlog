@@ -14,7 +14,7 @@ export default function OrdersChart({chartData}) {
         }
       }
     }] };
-const series = [chartData.completed_order, chartData.ongoing_order, 0,]; //our data
+const series = [chartData ? chartData.completed_order : 0, chartData ? chartData.ongoing_order : 0, 0,]; //our data
 
 return (
   <div className="">
