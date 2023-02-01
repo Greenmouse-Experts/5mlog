@@ -22,7 +22,7 @@ const reducer = {
     driver: driverReducer,
     staff: staffReducer,
     inventory: inventReducer,
-    notify: notifyReducer
+    notify: notifyReducer,
 }
 
 const store = configureStore({

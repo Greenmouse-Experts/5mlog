@@ -1,7 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-export default function OrdersChart() {
+export default function OrdersChart({chartData}) {
     
     const options = { labels: ["Completed", "Ongoing", "Cancelled"],responsive: [{
       breakpoint: 480,
@@ -14,7 +14,7 @@ export default function OrdersChart() {
         }
       }
     }] };
-const series = [20, 16, 3,]; //our data
+const series = [chartData.completed_order, chartData.ongoing_order, 0,]; //our data
 
 return (
   <div className="">

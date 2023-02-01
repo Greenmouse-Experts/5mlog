@@ -1,5 +1,5 @@
 import { Breadcrumbs } from '@material-tailwind/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TbTruckDelivery, TbPackgeExport } from "react-icons/tb"
 import { AiOutlineDeliveredProcedure } from "react-icons/ai"
@@ -7,11 +7,31 @@ import { GiBuyCard } from "react-icons/gi"
 import { TbLiveView} from "react-icons/tb"
 import { UserDashBoardHomeTable } from '../../assets/Tables/UserDashBoardHome'
 import OrdersChart from '../../assets/Charts/OrdersChart'
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import axios from "axios";
 
 export const UserDashboard = () => {
 
     const user = useSelector((state) => state.auth.user);
+    const [request, setData] = useState([]);
+
+    useEffect(() => {
+        fetchDashboard()
+    }, []);
+
+    const token = JSON.parse(localStorage.getItem('lynchpin'));
+
+    const fetchDashboard = async () => {
+        try {
+            const url = `${process.env.REACT_APP_BASE_URL}/get/dashboard`;
+            const response = await axios.get(url, { headers: { 'Authorization': 'Bearer ' + token } });
+            const data = response.data.data
+            setData(data);
+            console.log(data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
   return (
     <div>
@@ -45,7 +65,7 @@ export const UserDashboard = () => {
                             </div>
                         </div>
                         <div className='w-8/12'>
-                            <p className='lg:text-4xl text-2xl fw-600'>34</p>
+                              <p className='lg:text-4xl text-2xl fw-600'>{ request.total_order }</p>
                             <p className='fs-400'>Total Deliveries</p>
                         </div>
                     </div>
@@ -56,7 +76,7 @@ export const UserDashboard = () => {
                             </div>
                         </div>
                         <div className='w-8/12'>
-                            <p className='lg:text-4xl text-2xl  fw-600'>14</p>
+                              <p className='lg:text-4xl text-2xl  fw-600'>{request.pending_order }</p>
                             <p className='fs-400'>Delivery Request</p>
                         </div>
                     </div>
@@ -67,7 +87,7 @@ export const UserDashboard = () => {
                             </div>
                         </div>
                         <div className='w-8/12'>
-                            <p className='lg:text-4xl text-2xl  fw-600'>10</p>
+                              <p className='lg:text-4xl text-2xl  fw-600'>{request.ongoing_order}</p>
                             <p className='fs-400'>Ongoing Deliveries</p>
                         </div>
                     </div>
@@ -78,7 +98,7 @@ export const UserDashboard = () => {
                             </div>
                         </div>
                         <div className='w-8/12'>
-                            <p className='lg:text-4xl text-2xl  fw-600'>14</p>
+                              <p className='lg:text-4xl text-2xl  fw-600'>{request.completed_order}</p>
                             <p className='fs-400'>Delivered Orders</p>
                         </div>
                     </div>
@@ -91,11 +111,11 @@ export const UserDashboard = () => {
                             <p className='fw-600 text-lg flex items-center '><span className=' pr-3'><GiBuyCard/></span>Order Activity</p>
                             <button className='btn-primary py-1 flex items-center'>view all <span className='pl-2 text-xl'><TbLiveView/></span></button>
                         </div>
-                        <UserDashBoardHomeTable/>
+                          <UserDashBoardHomeTable tableList={ request.order_activities } />
                     </div>
                     <div className='bg-white lg:p-4 p-6 rounded-lg mt-6 lg:mt-0'>
                         <p className='pb-2 mb-8 fw-600 text-lg flex items-center border-b border-gray-400'><span className=' pr-3'><AiOutlineDeliveredProcedure/></span>Deliveries</p>
-                        <OrdersChart/>
+                          <OrdersChart chartData={ request } />
                     </div>
                 </div>
             </div>
