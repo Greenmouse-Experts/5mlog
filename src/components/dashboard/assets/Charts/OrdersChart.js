@@ -18,6 +18,7 @@ const series = [chartData ? chartData.completed_order : 0, chartData ? chartData
 
 return (
   <div className="">
+    {series}
     <ReactApexChart options={options} series={series} type="pie" width="100%" />
   </div>
 );
