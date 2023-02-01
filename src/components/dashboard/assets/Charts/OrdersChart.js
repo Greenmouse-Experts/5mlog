@@ -14,11 +14,10 @@ export default function OrdersChart({chartData}) {
         }
       }
     }] };
-const series = [chartData ? chartData.completed_order : 0, chartData ? chartData.ongoing_order : 0, 0,]; //our data
+  const series = [chartData.length > 0 ? chartData.completed_order : 0, chartData.length > 0 ? chartData.ongoing_order : 0, 0]; //our data
 
 return (
   <div className="">
-    {series}
     <ReactApexChart options={options} series={series} type="pie" width="100%" />
   </div>
 );
