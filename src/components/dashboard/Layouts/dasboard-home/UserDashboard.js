@@ -65,7 +65,7 @@ export const UserDashboard = () => {
                             </div>
                         </div>
                         <div className='w-8/12'>
-                              <p className='lg:text-4xl text-2xl fw-600'>{ request.total_order }</p>
+                              <p className='lg:text-4xl text-2xl fw-600'>{ request ? request.total_order : 0 }</p>
                             <p className='fs-400'>Total Deliveries</p>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ export const UserDashboard = () => {
                             </div>
                         </div>
                         <div className='w-8/12'>
-                              <p className='lg:text-4xl text-2xl  fw-600'>{request.pending_order }</p>
+                              <p className='lg:text-4xl text-2xl  fw-600'>{request ? request.pending_order : 0 }</p>
                             <p className='fs-400'>Delivery Request</p>
                         </div>
                     </div>
@@ -87,7 +87,7 @@ export const UserDashboard = () => {
                             </div>
                         </div>
                         <div className='w-8/12'>
-                              <p className='lg:text-4xl text-2xl  fw-600'>{request.ongoing_order}</p>
+                              <p className='lg:text-4xl text-2xl  fw-600'>{request ? request.ongoing_order : 0}</p>
                             <p className='fs-400'>Ongoing Deliveries</p>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ export const UserDashboard = () => {
                             </div>
                         </div>
                         <div className='w-8/12'>
-                              <p className='lg:text-4xl text-2xl  fw-600'>{request.completed_order}</p>
+                              <p className='lg:text-4xl text-2xl  fw-600'>{request ? request.completed_order : 0}</p>
                             <p className='fs-400'>Delivered Orders</p>
                         </div>
                     </div>
@@ -111,11 +111,11 @@ export const UserDashboard = () => {
                             <p className='fw-600 text-lg flex items-center '><span className=' pr-3'><GiBuyCard/></span>Order Activity</p>
                             <button className='btn-primary py-1 flex items-center'>view all <span className='pl-2 text-xl'><TbLiveView/></span></button>
                         </div>
-                        <UserDashBoardHomeTable tableList={request.order_activities}/>
+                          <UserDashBoardHomeTable tableList={request ? request.order_activities : []}/>
                     </div>
                     <div className='bg-white lg:p-4 p-6 rounded-lg mt-6 lg:mt-0'>
                         <p className='pb-2 mb-8 fw-600 text-lg flex items-center border-b border-gray-400'><span className=' pr-3'><AiOutlineDeliveredProcedure/></span>Deliveries</p>
-                          <OrdersChart chartData={request} />
+                          <OrdersChart chartData={request ? request : null} />
                     </div>
                 </div>
             </div>
